@@ -1029,9 +1029,13 @@ body {
 .project-list .project-item {
   margin-bottom: 5px;
 }
+.project-list .project-item .ellipsis {
+  background-image: none;
+  font-size: 10px;
+}
 article header .posttitle {
   margin-top: 0;
-  margin-bottom: 0;
+  margin-bottom: 1rem;
   text-transform: none;
   font-size: 1.5em;
   line-height: 1.25;
@@ -1045,12 +1049,15 @@ article header .meta * {
   font-size: 0.85rem;
 }
 article header .author {
-  text-transform: uppercase;
   letter-spacing: 0.01em;
-  font-weight: 700;
 }
 article header .postdate {
   display: inline;
+}
+article .content {
+  border-top: 1px solid #ddd;
+  padding-top: 1rem;
+/* http://webdesignerwall.com/tutorials/css-elastic-videos */
 }
 article .content h2:before {
   content: "#";
@@ -1066,7 +1073,7 @@ article .content video {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: auto;
+  margin: 1rem auto;
 }
 article .content .video-container {
   position: relative;
