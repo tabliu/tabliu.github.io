@@ -556,8 +556,8 @@ body {
   font-style: normal;
   font-weight: 700;
   color: #c9cacc;
-  margin-top: -0.2rem;
-  margin-bottom: 0.2rem;
+  margin-top: 0;
+  margin-bottom: 0;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
