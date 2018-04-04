@@ -1,106 +1,132 @@
-/**
- * Sets up Justified Gallery.
- */
-if (!!$.prototype.justifiedGallery) {
-  var options = {
-    rowHeight: 140,
-    margins: 4,
-    lastRow: 'justify'
-  };
-  $('.article-gallery').justifiedGallery(options);
-}
+$(function () {
 
+	$('.post__main img').on('click', function () {
+		var $img = $(this);
 
-$(document).ready(function() {
+		$.fancybox.open([{
+			src: $img.attr('src'),
+			type: 'image'
+		}]);
+	});
 
-  /**
-   * Shows the responsive navigation menu on mobile.
-   */
-  $("#header > #nav > ul > .icon").click(function() {
-    $("#header > #nav > ul").toggleClass("responsive");
-  });
+	$('[data-fancybox]').fancybox({
+		// closeClickOutside: false, 
+		image: {
+			protect: true
+		}
+	});
 
+	// key bind
 
-  /**
-   * Controls the different versions of  the menu in blog post articles 
-   * for Desktop, tablet and mobile.
-   */
-  if ($(".post").length) {
-    /**
-     * Display the menu if the menu icon is clicked.
-     */
-    var menu = $("#menu");
-    var menu_icon = $("#menu-icon, #menu-icon-tablet");
-    menu_icon.click(function() {
-      if (menu.css('visibility') === 'hidden') {
-        menu.css("visibility", "visible");
-        menu_icon.addClass('active');
-      } else {
-        menu.css("visibility", "hidden");
-        menu_icon.removeClass('active');
-      }
-      return false;
-    });
+	// j  down
+	// k  top
+	// t  page top
+	// b  page bottom
 
-    /**
-     * Add a scroll listener to the menu to hide/show the navigation links.
-     */
-    if (menu.length) {
-      $(window).on('scroll', function() {
-        var topDistance = $("#menu > #nav").offset().top;
+	// i  go index
+	var $body = $('html');
 
-        // hide only the navigation links on desktop
-        if (menu.css('visibility') !== 'hidden' && topDistance < 50) {
-          $("#menu > #nav").show();
-        } else if (menu.css('visibility') !== 'hidden' && topDistance > 100) {
-          $("#menu > #nav").hide();
-        }
+	var isKeydown = false;
+	$body.on('keydown', function (e) {
+		// console.log(e.which, 'key down');
 
-        // on tablet, hide the navigation icon as well and show a "scroll to top
-        // icon" instead
-        if ( ! $( "#menu-icon" ).is(":visible") && topDistance < 50 ) {
-          $("#menu-icon-tablet").show();
-          $("#top-icon-tablet").hide();
-        } else if (! $( "#menu-icon" ).is(":visible") && topDistance > 100) {
-          $("#menu-icon-tablet").hide();
-          $("#top-icon-tablet").show();
-        }
-      });
-    }
+		switch (e.which) {
+			case 74: // j down
+				if (!isKeydown) {
+					isKeydown = true;
+					requestAnimationFrame(function animate() {
+						var curTop = window.scrollY;
+						window.scrollTo(0, curTop + 15);
 
-    /**
-     * Show mobile navigation menu after scrolling upwards,
-     * hide it again after scrolling downwards.
-     */
-    if ($( "#footer-post").length) {
-      var lastScrollTop = 0;
-      $(window).on('scroll', function() {
-        var topDistance = $(window).scrollTop();
+						if (isKeydown) {
+							requestAnimationFrame(animate);
+						}
+					});
+				}
 
-        if (topDistance > lastScrollTop){
-          // downscroll -> show menu
-          $("#footer-post").hide();
-        } else {
-          // upscroll -> hide menu
-          $("#footer-post").show();
-        }
-        lastScrollTop = topDistance;
+				break;
 
-        // close all submenu's on scroll
-        $("#nav-footer").hide();
-        $("#toc-footer").hide();
-        $("#share-footer").hide();
+			case 75: // k up
+				if (!isKeydown) {
+					isKeydown = true;
+					requestAnimationFrame(function animate() {
+						var curTop = window.scrollY;
+						window.scrollTo(0, curTop - 15);
 
-        // show a "navigation" icon when close to the top of the page, 
-        // otherwise show a "scroll to the top" icon
-        if (topDistance < 50) {
-          $("#actions-footer > ul > #top").hide();
-          $("#actions-footer > ul > #menu").show();
-        } else if (topDistance > 100) {
-          $("#actions-footer > ul > #menu").hide();
-          $("#actions-footer > ul > #top").show();
-        }
-      });
-    }
-  }
+						if (isKeydown) {
+							requestAnimationFrame(animate);
+						}
+					});
+				}
+
+				break;
+
+			case 191: // shift + / = ? show help modal
+				break;
+
+				// 16 shift
+			case 84: // t
+				window.scrollToTop(1);
+				break;
+
+			case 66: // b
+				window.scrollToBottom();
+				break;
+
+			case 78: // n half
+				window.scrollPageDown(1);
+				break;
+
+			case 77: // m
+				window.scrollPageUp(1);
+				break;
+		}
+
+	});
+
+	$body.on('keyup', function (e) {
+		isKeydown = false;
+	});
+
+	// print hint
+
+	var comments = [
+		'',
+		'                    .::::.            快捷键：',
+		'                  .::::::::.            j：下移',
+		'                 :::::::::::            k：上移',
+		"             ..:::::::::::'             t：移到最顶",
+		"           '::::::::::::'               b：移到最底",
+		'             .::::::::::                n：下移很多',
+		"        '::::::::::::::..               m：上移很多",
+		'             ..::::::::::::.',
+		'           ``::::::::::::::::',
+		"            ::::``:::::::::'        .:::.",
+		"           ::::'   ':::::'       .::::::::.",
+		"         .::::'      ::::     .:::::::'::::.",
+		"        .:::'       :::::  .::::::::'  ':::::.",
+		"       .::'        :::::::::::::::'      ':::::.",
+		"      .::'        :::::::::::::::'          ':::.",
+		"  ...:::          :::::::::::::'              ``::.",
+		" ```` ':.         '::::::::::'                  ::::..",
+		"                    ':::::'                    ':'````..",
+		''
+	];
+
+	comments.forEach(function (item) {
+		console.log('%c' + item, 'color: #399c9c');
+	});
+
+	$('.btn-reward').on('click', function (e) {
+		e.preventDefault();
+
+		var $reward = $('.reward-wrapper');
+		$reward.slideToggle();
+	});
+
+	$('body').addClass('queue-in');
+	setTimeout(function() {
+		$('body').css({ opacity: 1}).removeClass('queue-in');
+	}, 500);
+
 });
