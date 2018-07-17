@@ -5,7 +5,7 @@
     
   <url>
     <loc>http://iqianduan.com/2018/07/14/js-learning-10/</loc>
-    <lastmod>2018-07-16T08:36:03.301Z</lastmod>
+    <lastmod>2018-07-17T07:00:19.665Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习笔记（10）- 对象</title>
@@ -26,7 +26,7 @@
     
   <url>
     <loc>http://iqianduan.com/2018/07/11/js-learning-09/</loc>
-    <lastmod>2018-07-11T04:21:27.385Z</lastmod>
+    <lastmod>2018-07-17T06:53:09.073Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习笔记（9）- 立即执行函数</title>
@@ -47,11 +47,74 @@
     
   <url>
     <loc>http://iqianduan.com/2018/07/05/js-learning-08/</loc>
-    <lastmod>2018-07-11T01:54:28.707Z</lastmod>
+    <lastmod>2018-07-17T06:50:47.200Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习笔记（8）- 闭包</title>
         <pubTime>2018-07-05T02:10:10.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/2018/07/04/js-learning-07/</loc>
+    <lastmod>2018-07-17T06:42:19.255Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（7）- 作用域</title>
+        <pubTime>2018-07-04T03:10:11.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/2018/07/03/js-learning-06/</loc>
+    <lastmod>2018-07-17T04:00:03.225Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（6）- 函数</title>
+        <pubTime>2018-07-03T02:10:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/2018/06/26/js-learning-01/</loc>
+    <lastmod>2018-07-16T09:25:06.700Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（1）- 初识</title>
+        <pubTime>2018-06-26T08:16:00.000Z</pubTime>
         
         <tag>code</tag>
          
@@ -110,75 +173,12 @@
 
     
   <url>
-    <loc>http://iqianduan.com/2018/07/04/js-learning-07/</loc>
-    <lastmod>2018-07-05T10:23:21.430Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（7）- 作用域</title>
-        <pubTime>2018-07-04T03:10:11.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iqianduan.com/2018/07/03/js-learning-06/</loc>
-    <lastmod>2018-07-05T10:23:15.372Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（6）- 函数</title>
-        <pubTime>2018-07-03T02:10:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://iqianduan.com/2018/07/02/js-learning-05/</loc>
     <lastmod>2018-07-05T10:23:05.805Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习笔记（5）- 类型转换</title>
         <pubTime>2018-07-02T10:10:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iqianduan.com/2018/06/26/js-learning-01/</loc>
-    <lastmod>2018-07-05T10:17:27.857Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（1）- 初识</title>
-        <pubTime>2018-06-26T08:16:00.000Z</pubTime>
         
         <tag>code</tag>
          
