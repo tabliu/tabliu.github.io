@@ -1,0 +1,8 @@
+User-Agent: *
+
+# BEGIN XML-SITEMAP-PLUGIN
+Sitemap: http://iqianduan.com/robots.txt
+Sitemap: http://www.iqianduan.com/robots.txt
+# END XML-SITEMAP-PLUGIN
+
+# Copy the contents of your robots.txt file here to validate it.

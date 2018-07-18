@@ -3,17 +3,18 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
-description:
-keywords:
-author: John Doe
+title: 大踏步走
+subtitle: Tabliu's Blog
+description: 一名80后前端开发者，专注前端开发和用户体验。天资愚钝，五体不勤，只能不停大踏步走。
+keywords: 大踏步走, 前端开发, 前端网站, javascript, vue
+author: Tabliu
 language:
 timezone:
+structured_data: true
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://iqianduan.com/
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -36,23 +37,14 @@ external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
 post_asset_folder: false
-relative_link: false
+relative_link: ture
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
-  auto_detect: false
+  auto_detect: ture
   tab_replace:
-  
-# Home page setting
-# path: Root path for your blogs index page. (default = '')
-# per_page: Posts displayed per page. (0 = disable pagination)
-# order_by: Posts order. (Order by date descending by default)
-index_generator:
-  path: ''
-  per_page: 10
-  order_by: -date
-  
+
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -73,9 +65,35 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+## theme: landscape
+## theme: oishi
+## theme: again
+## theme: typing
+## theme: cactus-dark
+theme: ochuunn
+
+# stylus
+stylus:
+  compress: false
+  sourcemaps:
+    comment: true
+    inline: true
+    sourceRoot: ''
+    basePath: .
+
+# hexo sitemap网站地图
+baidusitemap:
+    path: baidusitemap.xml
+
+prism_plugin:
+  mode: 'preprocess'    # realtime/preprocess
+  theme: 'default'
+  line_number: false    # default false
+  custom_css: 'css/prism-a11y-dark.css'     # optional
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: https://github.com/tabliu/tabliu.github.io.git
+  branch: master
