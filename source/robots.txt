@@ -1,8 +1,28 @@
 User-Agent: *
+User-agent: *
+Allow: /
+Allow: /archives/
+Allow: /categories/
+Allow: /about/
+Allow: /2017/
+Allow: /2018/
+Allow: /page/
+Allow: /tags/
+Allow: /post/
+
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+Disallow: /lib/
 
 # BEGIN XML-SITEMAP-PLUGIN
-Sitemap: http://iqianduan.com/robots.txt
-Sitemap: http://www.iqianduan.com/robots.txt
+Sitemap: http://iqianduan.com/sitemap.xml
+Sitemap: http://www.iqianduan.com/sitemap.xml
+Sitemap: http://iqianduan.com/baidusitemap.xml
+Sitemap: http://www.iqianduan.com/baidusitemap.xml
 # END XML-SITEMAP-PLUGIN
 
 # Copy the contents of your robots.txt file here to validate it.

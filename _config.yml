@@ -16,7 +16,7 @@ structured_data: true
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://iqianduan.com/
 root: /
-permalink: :year/:month/:day/:title/
+permalink: post/:title.html
 permalink_defaults:
 
 # Directory
@@ -82,8 +82,11 @@ stylus:
     basePath: .
 
 # hexo sitemap网站地图
+sitemap:
+  path: sitemap.xml
+
 baidusitemap:
-    path: baidusitemap.xml
+  path: baidusitemap.xml
 
 prism_plugin:
   mode: 'preprocess'    # realtime/preprocess
