@@ -7,7 +7,7 @@ tags:
   - note
 ---
 
-> JavaScript学习笔记。本笔记是基于在腾讯课堂《[Web前端开发之JavaScript精英课堂【渡一教育】](https://ke.qq.com/webcourse/index.html#course_id=231577&term_id=100273169&taid=1464734172022937&vid=a14198i8y2h)》课程学习过程中记录的一些提纲和关键点。
+> JavaScript学习笔记。本笔记是基于在腾讯课堂《[Web前端开发之JavaScript精英课堂【渡一教育】](https://ke.qq.com/course/231577)》课程学习过程中记录的一些提纲和关键点。
 > 强烈推荐想要进行js入门学习来听听，尤其是前面姬成讲的基础知识点。
 
 ## 引子
@@ -93,7 +93,6 @@ console.log(mrDeng.wife) //xiaozhang
 
 另外还发现一个问题：如果一个变量没有定义直接打印会报错，但如果直接访问一个没有定义对象的属性是没有报错的，返回`undifined`，这点很有意思。
 
-
 ## 对象创建方法
 
 ### 对象字面量(plainObject)
@@ -138,7 +137,7 @@ function Car () {
 }
 
 var car1 = new Car(),
-		car2 = new Car();
+    car2 = new Car();
 car1.run();
 console.log(car1.health); // 99
 console.log(car2.health); // 100
@@ -366,7 +365,7 @@ function bitesLength (str) {
       count += 2;
     }
   }
-  
+
   console.log('The String "' + str + '" length is ' + count);
 }
 
@@ -379,9 +378,11 @@ function bitesLength (str) {
       count ++;
     }
   }
-  
+
   console.log('The String "' + str + '" length is ' + count);
 }
 
 bitesLength('abcd 打飞机');
 ```
+
+本节完。

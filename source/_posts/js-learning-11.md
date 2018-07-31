@@ -7,9 +7,8 @@ tags:
   - note
 ---
 
-> JavaScript学习笔记。本笔记是基于在腾讯课堂《[Web前端开发之JavaScript精英课堂【渡一教育】](https://ke.qq.com/webcourse/index.html#course_id=231577&term_id=100273169&taid=1464734172022937&vid=a14198i8y2h)》课程学习过程中记录的一些提纲和关键点。
+> JavaScript学习笔记。本笔记是基于在腾讯课堂《[Web前端开发之JavaScript精英课堂【渡一教育】](https://ke.qq.com/course/231577)》课程学习过程中记录的一些提纲和关键点。
 > 强烈推荐想要进行js入门学习来听听，尤其是前面姬成讲的基础知识点。
-
 
 ## 原型的定义
 
@@ -77,6 +76,7 @@ function Car (color) {
 ### 通过构造对象无法修改原型的属性。
 
 对象有增、删、改、查的功能，原型也同样具有。
+
 但是不能通过构造函数构造的对象来修改原型的属性值。
 
 ```javascript
@@ -104,6 +104,88 @@ console.log(Person.prototype.lastName); //Wang
 
 ![构造函数隐式属性](../../../../demo/demo_04.png)
 
+```javascript
+Person.prototype.name = 'abc';
+function Person() {
+  // 对象产生三段式
+  // var this {
+  // __proto__ : Person.prototype;
+  //}
+}
+
+var person = new Person();
+Person.prototype.name = '123';
+
+```
+
+以上代码我们在控制台输出`console.log(person.name)`打印结果是什么呢？
+
+结果是：`'123'`。对象的属性值查找，先找自身是否有，如果没有就从他的原型对象上找。上面原型的属性`name`被重新赋值，所以对象属性的值也更新了。
+
+我们换一种写法：
+
+```javascript
+Person.prototype.name = 'abc';
+function Person() {
+
+}
+
+var person = new Person();
+Person.prototype = {
+  name : '123'
+}
+```
+
+那现在码我们在控制台输出`console.log(person.name)`打印结果是什么呢？
+
+结果是：`'abc'`。
+
+以上两种写法有什么区别呢？
+
+第一种是重新对原型`prototype`属性进行赋值，所以对象属性也会跟着变化；
+
+第二种可不是简单的重新赋值，而是赋值了一个新对象，换了一个空间。
+
+相当于：
+
+```javascript
+Person.prototype.name = 'abc';
+function Person() {
+
+}
+
+var person = new Person();
+Person.prototype = {
+  name : '123'
+}
+
+//内部发生了这样的变化
+Person.prototype = { name : 'abc' }
+__proto__ : Person.prototype;
+Person.prototype = { name : '123' }
+
+```
+
+换个顺序写：
+
+```javascript
+Person.prototype.name = 'abc';
+
+function Person() {
+}
+
+Person.prototype = {
+  name : '123'
+}
+var person = new Person();
+```
+
+那现在码我们在控制台输出`console.log(person.name)`打印结果是什么呢？
+
+结果是：`'123'`。
+
+如何解释呢？其实很简答：根据预编译规则：函数声明整体提升，变量声明提升。首先将函数进行提升，后面的代码顺序执行。只有当执行到`var person = new Person();`产生对象声明，内部才会发生变化：`__proto__ : Person.prototype;`。所以输出继承的是后面对象的原型属性值。
+
 ### 如何查看对象的构造函数：构造器`constructor`
 
 查看一个对象是由哪个构造函数构造的，可以通过原型属性`constructor`来进行查看。
@@ -118,6 +200,7 @@ console.log(person1.constructor); //function Person () {}
 ```
 
 如果修改原型`prototype`的`constructor`属性值，会发生什么事情呢？
+
 ```javascript
 Person.prototype.lastName = 'Liu';
 function Person () {}
@@ -132,3 +215,10 @@ console.log(person2.constructor); //function Car () {}
 ```
 
 这样会导致构造器发生混乱，我们可不希望这样的事情发生。
+
+#### 补充一种命名规则：隐式命名规则
+
+* 系统的隐式命名：`__private__`。比如：`__proto__`
+* 自定义的隐式命名：`_private`。不希望别人访问这个属性，只可以使用提供的方法。
+
+本节完。
