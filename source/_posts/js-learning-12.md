@@ -35,7 +35,7 @@ var son = new Son();
 
 访问`son`相关属性会打印出如下内容：
 
-![原型链属性](../../../../demo/demo_05.png)
+![原型链属性](/demo/demo_05.png)
 
 我们通过打印对象`son`的属性可以发现：`son`不仅具有自身的对象属性，还继承其父级`father`的原型对象属性，同时也继承了其父级`father`的父级`Grand`的原型对象属性。
 这种链式的继承关系，我们称之为原型链。
@@ -70,7 +70,7 @@ var son = new Son();
 
 通过不同的打印和赋值，查看结果：
 
-![原型链操作](../../../../demo/demo_06.png)
+![原型链操作](/demo/demo_06.png)
 
 `son.fortune.card2 = 'Master'`这种修改，是引用值自己的修改，相当于自己修改自己的属性，这不是赋值修改，是一种调用修改。这种也仅限于引用值的修改，原始值是不可以的。
 
@@ -142,7 +142,7 @@ var person = new Person();
 ```javascript
 Person.prototype.name = 'sunny';
 function Person() {
-  
+
 }
 
 var person = new Person();
@@ -158,13 +158,13 @@ var person1 = Object.create(Person.prototype);
 
 如下图：
 
-![原型创建对象](../../../../demo/demo_07.png)
+![原型创建对象](/demo/demo_07.png)
 
 报错内容提示：对象原型必须是一个对象或者`null`。
 
 所以通过`Object.create()`方法来创建对象时，也可以使用`null`来创建一个没有原型的对象。但这个对象不具有`Object.prototype`的任何属性和方法。
 
-![原型创建对象](../../../../demo/demo_08.png)
+![原型创建对象](/demo/demo_08.png)
 
 即使手动添加了`__proto__`对象，也和系统隐式的内置属性不是同一个，不具有`Object.prototype`的属性和方法。
 
@@ -176,7 +176,7 @@ var person1 = Object.create(Person.prototype);
 
 `undefined`和`null`不是对象就没有原型，所以无法使用`toString()`方法。
 
-![toString()方法](../../../../demo/demo_09.png)
+![toString()方法](/demo/demo_09.png)
 
 ### 数字调用`toString()`方法
 
@@ -188,7 +188,7 @@ var person1 = Object.create(Person.prototype);
 
 我们发现会报错。
 
-![toString()方法](../../../../demo/demo_10.png)
+![toString()方法](/demo/demo_10.png)
 
 为什么会这样呢？
 

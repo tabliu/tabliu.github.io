@@ -279,7 +279,7 @@ console.log(num.length);
 
 看看输出结果：
 
-![输出结果](../../../../demo/demo_03.png)
+![输出结果](/demo/demo_03.png)
 
 没有报错，而是`undefined`。
 如何理解呢？这里就要引入***包装类***的概念。

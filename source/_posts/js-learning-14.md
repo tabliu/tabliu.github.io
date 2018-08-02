@@ -176,7 +176,7 @@ console.log(father.sex); //undefined
 
 我们知道对象都有一个属性`constructor`来指向对象构造函数，我们看上例中`son`的`constructor`是谁呢？
 
-![constructor属性](../../../../demo/demo_11.png)
+![constructor属性](/demo/demo_11.png)
 
 ```javascript
 son.__proto__ --> new Temp().__proto__ --> Father.prototype

@@ -102,7 +102,7 @@ console.log(Person.prototype.lastName); //Wang
 
 一个函数通过`new`申明成为一个构造函数，不管是否预先定义原型`prototype`的属性，`prototype`对象都已产生，可以通过隐式属性`__proto__`来进行查看。
 
-![构造函数隐式属性](../../../../demo/demo_04.png)
+![构造函数隐式属性](/demo/demo_04.png)
 
 ```javascript
 Person.prototype.name = 'abc';
