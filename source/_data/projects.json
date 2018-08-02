@@ -1,13 +1,13 @@
 [
     {
-       "name":"fe-tools",
-       "url":"https://github.com/tabliu/fe-tools/",
+       "name":"fe-skills",
+       "url":"https://github.com/tabliu/fe-skills/",
        "desc":"As a Front end Engineer, The Hard skills to master "
     },
     {
-       "name":"fe-interview",
-       "url":"https://github.com/tabliu/fe-interview/",
-       "desc":"The questions for Front end Engineer interview "
+       "name":"vue-zhihudaily",
+       "url":"https://github.com/tabliu/vue-zhihudaily/",
+       "desc":"A Vue.js project about zhihudaily "
     },
     {
        "name":"page-placeholder",

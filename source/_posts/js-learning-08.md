@@ -112,8 +112,46 @@ eater.eat();
 
 ### 可以实现封装，属性私有化
 
+我们看一个例子：
+
+```javascript
+function Deng(name, wife) {
+  var prepareWife = 'xiaozhang';
+  this.name = name;
+  this.wife = wife;
+  this.divorce = function() {
+    this.wife = prepareWife;
+  }
+  this.changePrepareWife = function(target) {
+    prepareWife = targe;
+  }
+  this.sayPrepareWife = function() {
+    console.log(prepareWife);
+  }
+}
+
+var deng = new Deng('laodeng', 'xiaowang');
+console.log(deng.wife); //xiaowang
+console.log(deng.prepareWife); //undefined
+deng.divorce();
+console.log(deng.wife); //xiaozhang
+deng.changePrepareWife('xiaoli');
+console.log(deng.prepareWife); //undefined
+deng.sayPrepareWife(); //xiaoli
+
+```
+
+我们有两个疑问：
+
+1. 为什么通过创建的对象`deng`访问`deng.prepareWife`返回`undefined`
+2. 为什么在外部执行的`deng.divorce()`、`deng.changePrepareWife('xiaoli')`和`deng.sayPrepareWife()`方法都可以调用`prepareWife`这个变量？
+
+`prepareWife`是构造函数的一个变量，外部用户是无法直接通过属性操作`deng.prepareWife`来访问的，只有构造函数自己能看到，从而形成私有化。外部对象只能通过操作构造函数提供的方法来访问私有化变量，从而去操作他。
+
+因为对象通过构造函数创建并返回构造函数的方法，从而形成了闭包。这些方法的函数被存储到外面，同时也存储了构造函数的执行期上下文，可以共用`Deng()`的AO，包括变量`prepareWife`。
+
 ### 模块化开发，防止污染全局变量
 
-这两个作用后期讲到后进行补充。
+这个作用后期讲到后进行补充。
 
 本节完。
