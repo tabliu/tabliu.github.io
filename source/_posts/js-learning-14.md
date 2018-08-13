@@ -190,7 +190,7 @@ function inherit(Target, Origin) {
   Temp.prototype = Origin.prototype;
   Target.prototype = new Temp();
   Target.prototype.constructor = Target;
-  Target.prototype.owner = Father.prototype;
+  Target.prototype.origin = Origin.prototype;
 }
 ```
 
@@ -205,7 +205,7 @@ var inherit = (function() {
     Temp.prototype = Origin.prototype;
     Target.prototype = new Temp();
     Target.prototype.constructor = Target;
-    Target.prototype.owner = Father.prototype;
+    Target.prototype.origin = Origin.prototype;
   }
 }())
 

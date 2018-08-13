@@ -164,6 +164,16 @@ a();
 * 这两个方法经常会拿来一起比较，但实际开发中很少用到；
 * 在ES5语法中，这两个方法不可用。
 
+### 三目运算符
+
+> 条件判断 ? 是 : 否 并且会返回值
+
+```javascript
+var num = 1 > 0 ? ('10' > '9' ? 0 : 1) : 1 - 1;
+// 字符串相比是比的主位ask码
+console.log(num); //1
+```
+
 ## 课后练习
 
 ### 求`console.log`打印结果？
@@ -229,5 +239,138 @@ function test () {
 * 函数预编译(AO)；
 * `this`指向问题；
 * 函数和构造函数的预编译差异。
+
+## 课后作业
+
+### 浅克隆
+
+```javascript
+var obj1 = {
+  name : 'abc',
+  age : 123,
+  sex : 'male',
+  card : ['visa', 'life',['card1', 'card2']]
+}
+
+var obj2 = {}
+
+function clone(origin, target) {
+  var target = target || {};
+  for(var prop in origin) {
+    target[prop] = origin[prop];
+  }
+  return target;
+}
+
+clone(obj1, obj2);
+```
+
+浅克隆的方法很好实现，但也存在一个问题。如果对象的属性值是非原始值，那目标对象和原始对象都会指向到相同的索引上，改变一方，另一方也会发生改变。
+
+现实项目中是不希望发生的，这样就需要用到深克隆的方法来实现。
+
+### 深克隆
+
+```javascript
+var obj1 = {
+  name : 'abc',
+  age : 123,
+  sex : 'male',
+  card : ['visa', 'life',['card1', 'card2']],
+  wife : {
+    name : 'bcd',
+    son : {
+      name : 'cdde'
+    }
+  }
+}
+
+var obj2 = {}
+```
+
+分析思路：
+
+* 遍历对象：`for(var prop in obj)`
+* 判断是否是原始值：`typeof(obj[prop]) == Object`
+* 判断是否是数组还是对象： `constructor/instanceof/toString()`三种方法，推荐使用`toString()`
+* 建立相应的数组或者对象：`[] or {}`
+* 递归
+
+实现：
+
+```javascript
+  var obj1 = {
+    name: 'abc',
+    age: 123,
+    sex: 'male',
+    card: ['visa', 'life', ['card1', 'card2']],
+    wife: {
+      name: 'bcd',
+      son: {
+        name: 'cdde'
+      }
+    }
+  }
+
+  var obj2 = {}
+
+  function deepClone(origin, target) {
+    var target = target || {},
+      toStr = Object.prototype.toString,
+      arrStr = '[object Array]';
+    for (var prop in origin) {
+      if (origin.hasOwnProperty(prop)) {
+        if (origin[prop] !== 'null' && typeof (origin[prop]) == 'object') {
+          if (toStr.call(origin[prop]) == arrStr) {
+            target[prop] = [];
+          } else {
+            target[prop] = {}
+          }
+          deepClone(origin[prop], target[prop]);
+        } else {
+          target[prop] = origin[prop];
+        }
+      }
+    }
+
+    return target;
+  }
+```
+
+使用三目运算符还看简化下代码：
+
+```javascript
+  function deepClone(origin, target) {
+    var target = target || {},
+      toStr = Object.prototype.toString,
+      arrStr = '[object Array]';
+    for (var prop in origin) {
+      if (origin.hasOwnProperty(prop)) {
+        if (origin[prop] !== 'null' && typeof (origin[prop]) == 'object') {
+          // if (toStr.call(origin[prop]) == arrStr) {
+          //   target[prop] = [];
+          // } else {
+          //   target[prop] = {}
+          // }
+          target[prop] = toStr.call(originp[prop] == arrStr) ? [] : {};
+          deepClone(origin[prop], target[prop]);
+        } else {
+          target[prop] = origin[prop];
+        }
+      }
+    }
+
+    return target;
+  }
+```
+
+总结：
+
+在实现深克隆功能的过程中一定要注意一下几个问题：
+
+1. `Object.prototype.toString`的使用；
+2. `hasOwnProperty()`的使用；
+3. `===`与`==`的区别使用；
+4. `typeof` 的返回结果都是小写的字符串。
 
 本节完。
