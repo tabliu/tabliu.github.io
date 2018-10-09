@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name="sogou_site_verification" content="5rKcZFfjtl"><meta name="360-site-verification" content="41ba3d1b4d5a1406eb63765d4c990146"><meta name="author" content="Tabliu"><meta name="keywords" content="大踏步走, 前端开发, 前端网站, javascript, vue"><meta name="description" content="一名80后前端开发者，专注前端开发和用户体验。天资愚钝，五体不勤，只能不停大踏步走。"><link rel="alternative" href="/atom.xml" title="大踏步走" type="application/atom+xml"><link rel="icon" href="/favicon.ico"><title>JavaScript学习笔记（15）- 命名空间 - 大踏步走</title><link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../js/fancybox/jquery.fancybox.min.css"><!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--><script src="../js/jquery-3.1.1.min.js"></script><script src="../js/fancybox/jquery.fancybox.min.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?0e8fa2fbb74e1bdfda05935cbf42c755";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body style="opacity:0"><header class="head"><img class="head-avatar u-fl" src="/img/logo.png" alt="tabliu"><h1 class="head-title u-fl"><a href="/" title="大踏步走">大踏步走</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a class="head-nav__link" href="/">Home</a></li><li class="head-nav__item"><a class="head-nav__link" href="/archives">Writing</a></li><li class="head-nav__item"><a class="head-nav__link" href="https://github.com/tabliu/">Project</a></li><li class="head-nav__item"><a class="head-nav__link" href="/about">About</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time class="post__time" datetime="2018-08-01T01:00:00.000Z">August 1, 2018</time><h1 class="post__title"><a href="/post/js-learning-15.html">JavaScript学习笔记（15）- 命名空间</a></h1><div class="post__main echo"><blockquote><p>JavaScript学习笔记。本笔记是基于在腾讯课堂《<a href="https://ke.qq.com/course/231577" target="_blank" rel="noopener">Web前端开发之JavaScript精英课堂【渡一教育】</a>》课程学习过程中记录的一些提纲和关键点。<br>强烈推荐想要进行js入门学习来听听，尤其是前面姬成讲的基础知识点。</p></blockquote><h2 id="命名空间的作用"><a href="#命名空间的作用" class="headerlink" title="命名空间的作用"></a>命名空间的作用</h2><blockquote><p>管理变量，防止污染全局，适用于模块化开发。</p></blockquote><h2 id="命名空间的方法"><a href="#命名空间的方法" class="headerlink" title="命名空间的方法"></a>命名空间的方法</h2><h3 id="传统方法：在变量前面加前缀"><a href="#传统方法：在变量前面加前缀" class="headerlink" title="传统方法：在变量前面加前缀"></a>传统方法：在变量前面加前缀</h3><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> <span class="token operator">=</span> jcName<span class="token punctuation">;</span>
+</code></pre><p>这种方法存在很多局限性，现在已基本抛弃使用。</p><h3 id="通过对象属性来产生命名空间"><a href="#通过对象属性来产生命名空间" class="headerlink" title="通过对象属性来产生命名空间"></a>通过对象属性来产生命名空间</h3><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> org <span class="token operator">=</span> <span class="token punctuation">{</span>
+  department1 <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    zhangsan <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      name <span class="token punctuation">:</span> <span class="token string">'abc'</span><span class="token punctuation">,</span>
+      age <span class="token punctuation">:</span> <span class="token number">123</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    lisi <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  department2 <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    zhaowu <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    wangmazi <span class="token punctuation">:</span> <span class="token punctuation">{</span>
+
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> zhangsan <span class="token operator">=</span> org<span class="token punctuation">.</span>department1<span class="token punctuation">.</span>zhangsan<span class="token punctuation">;</span>
+zhangsan<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'bcd'</span><span class="token punctuation">;</span>
+</code></pre><p>这种方法比较麻烦，不是最优的命名空间解决方法。</p><h3 id="通过闭包来实现变量私有化"><a href="#通过闭包来实现变量私有化" class="headerlink" title="通过闭包来实现变量私有化"></a>通过闭包来实现变量私有化</h3><p>用闭包来解决，返回方法的调用。</p><p><code>init</code>是入口函数，初始化，用来调用不同函数的执行。</p><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> init <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'123'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">callName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">callName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>这样通过立即执行函数形成一个闭包，<code>init</code>用来执行<code>return</code>出来的方法，避免了变量冲突。</p><pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> init <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'aaa'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">callName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">callName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> initDeng <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'bbb'</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">function</span> <span class="token function">callName</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">callName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">var</span> name <span class="token operator">=</span> <span class="token string">'ccc'</span><span class="token punctuation">;</span>
+
+<span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//aaa</span>
+<span class="token function">initDeng</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//bbb</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//ccc</span>
+</code></pre><p>即使有全局变量或者其他函数的定义，也不会相互影响，很好的解决了变量污染的问题。</p><p>延伸阅读：<a href="http://ourjs.com/detail/538d8d024929582e6200000c" target="_blank" rel="noopener">在JavaScript中创建命名空间的几种写法</a></p><p>本节完。</p></div></header><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a class="post__tag__link" href="/tags/code/">code</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/javascript/">javascript</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/note/">note</a></li></ul></footer></article></main><footer class="foot"><div class="foot-copy">Copyright &copy; 2015-2018 <a href="/" title="大踏步走">Tabliu</a>theme by <a href="https://github.com/ochukai/hexo-theme-ochuunn/">ochuunn</a><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13042587号-1</a></div></footer><script src="../js/scroller.js"></script><script src="../js/main.js"></script><script>!function(){var c="http:"==document.location.protocol?"http://js.passport.qihucdn.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac":"https://jspassport.ssl.qhimg.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac";document.write('<script src="'+c+'" id="sozz"><\/script>')}()</script></body></html>
