@@ -34,6 +34,8 @@ tags:
 * "=="   "!=="：  `NaN == NaN => false`；
 * "==="   "!=="：绝对等于或者不等于；
 
+注意： `undefined`和`null`不能和数字做比较。
+
 ### typeof
 
 * 返回6种类型：`String`、`Number`、`Object`、`Boolean`、`Function`和`Undefined`；
