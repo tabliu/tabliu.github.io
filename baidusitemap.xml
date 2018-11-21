@@ -4,6 +4,111 @@
 
     
   <url>
+    <loc>http://iqianduan.com/post/js-learning-23.html</loc>
+    <lastmod>2018-11-21T12:38:29.679Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（22）- DOM的基本操作</title>
+        <pubTime>2018-11-21T08:00:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/js-learning-22.html</loc>
+    <lastmod>2018-11-21T08:00:17.586Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（22）- 初识DOM</title>
+        <pubTime>2018-10-10T06:06:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/js-learning-03.html</loc>
+    <lastmod>2018-11-21T07:28:27.269Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（3）- 运算符</title>
+        <pubTime>2018-06-30T08:10:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/js-learning-18.html</loc>
+    <lastmod>2018-10-11T06:50:01.000Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（18）- 数组</title>
+        <pubTime>2018-08-14T00:18:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/js-learning-21.html</loc>
+    <lastmod>2018-10-09T03:23:15.540Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（21）- ES5严格模式</title>
+        <pubTime>2018-10-09T02:06:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iqianduan.com/post/vue-learning-04.html</loc>
     <lastmod>2018-10-09T01:47:41.932Z</lastmod>
     <data>
@@ -172,54 +277,12 @@
 
     
   <url>
-    <loc>http://iqianduan.com/post/js-learning-03.html</loc>
-    <lastmod>2018-08-15T03:03:18.645Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（3）- 运算符</title>
-        <pubTime>2018-06-30T08:10:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://iqianduan.com/post/js-learning-02.html</loc>
     <lastmod>2018-08-15T03:00:59.699Z</lastmod>
     <data>
         <display>
         <title>JavaScript学习笔记（2）- 入门</title>
         <pubTime>2018-06-28T02:10:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iqianduan.com/post/js-learning-18.html</loc>
-    <lastmod>2018-08-15T02:53:16.947Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（18）- 数组</title>
-        <pubTime>2018-08-14T00:18:00.000Z</pubTime>
         
         <tag>code</tag>
          
