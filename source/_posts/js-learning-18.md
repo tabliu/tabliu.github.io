@@ -45,6 +45,30 @@ var arr = [6]; //arr.lenght = 1
 var arr1 = new Array(6); //arr.lenght = 6
 ```
 
+## 数组的属性
+
+数组的常用属性是`length`，表示数组的长度。
+
+```javascript
+var arr = [1, 2, 3, 4];
+console.log(arr.length); //arr.lenght = 4
+var arr1 = new Array(6);
+console.log(arr1.length); //arr.lenght = 6
+```
+
+`length`属性，既可以通过`arr.length`来读取，也可以改变赋值，从而改变原数组。
+
+```javascript
+var arr = [1, 2, 3, 4];
+console.log(arr.length); //arr.lenght = 4
+arr.length = 6;
+console.log(arr); //arr变成一个新数组，相当于 arr = [1, 2, 3, 4,,,]
+arr.length = 0;
+console.log(arr); //arr变成一个空数组，相当于 arr = []
+arr.length = 6;
+console.log(arr); //arr变成一个6位的空值数组，相当于 arr = new Array(6)
+```
+
 ## 数组的操作
 
 ### 数组的读
@@ -55,7 +79,6 @@ console.log(arr[10]); //undefined
 ```
 
 数组的读操作在正常情况下基本不会报错，除非执行了其不存在的方法。
-
 
 ### 数组的写
 
