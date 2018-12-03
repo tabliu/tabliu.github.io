@@ -482,7 +482,46 @@ Vue.config.keyCodes.f1 = 112
 
 ### v-if/v-if-else-if/v-else：条件渲染，如果成立则执行，不成立则注销；
 
+```html
+<div id="app">
+  <button v-on:click="error = !error">Toggle Error</dbuttoniv>
+
+  <button v-on:click="succeed = !succeed">Toggle Succeed</button>
+  <p v-if="error">网络连接错误：404</p>
+  <p v-else-if="succeed">网络连接成功：200</p>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      error: false,
+      succeed: false
+    }
+  });
+</script>
+```
+
 ### v-show：同样是条件渲染，不同的是不成立是隐藏而不是注销；
+
+```html
+<div id="app">
+  <h1>v-if条件语句</h1>
+  <button v-on:click="error = !error">Toggle Error</dbuttoniv>
+
+  <button v-on:click="succeed = !succeed">Toggle Succeed</button>
+  <p v-show="error">网络连接错误：404</p>
+  <p v-show="succeed">网络连接成功：200</p>
+</div>
+<script type="text/javascript">
+  var app = new Vue({
+    el: '#app',
+    data: {
+      error: false,
+      succeed: false
+    }
+  });
+</script>
+```
 
 ## 计算属性和数据监听
 
