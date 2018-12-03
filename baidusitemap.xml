@@ -4,6 +4,92 @@
 
     
   <url>
+    <loc>http://iqianduan.com/post/es6-learning-01.html</loc>
+    <lastmod>2018-12-03T12:18:43.832Z</lastmod>
+    <data>
+        <display>
+        <title>ES6学习笔记（1）- 数组方法</title>
+        <pubTime>2018-11-30T02:40:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+        <tag>ES6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/vue-learning.html</loc>
+    <lastmod>2018-12-03T02:53:59.846Z</lastmod>
+    <data>
+        <display>
+        <title>Vue 学习笔记</title>
+        <pubTime>2018-03-12T03:12:58.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>note</tag>
+         
+        <tag>vue</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/vue-learning-05.html</loc>
+    <lastmod>2018-11-28T07:17:38.060Z</lastmod>
+    <data>
+        <display>
+        <title>Vue 学习笔记(5) - 理解vue-router中的router、routes和$route</title>
+        <pubTime>2018-11-27T01:30:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>note</tag>
+         
+        <tag>vue</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/js-learning-24.html</loc>
+    <lastmod>2018-11-22T02:12:36.011Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（24）- 日期对象-Date()</title>
+        <pubTime>2018-11-22T01:56:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iqianduan.com/post/js-learning-23.html</loc>
     <lastmod>2018-11-22T01:40:52.520Z</lastmod>
     <data>
@@ -199,27 +285,6 @@
         <display>
         <title>Vue 学习笔记(3) - Vuex</title>
         <pubTime>2018-09-20T02:30:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>note</tag>
-         
-        <tag>vue</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iqianduan.com/post/vue-learning.html</loc>
-    <lastmod>2018-09-27T10:04:29.700Z</lastmod>
-    <data>
-        <display>
-        <title>Vue 学习笔记</title>
-        <pubTime>2018-03-12T03:12:58.000Z</pubTime>
         
         <tag>code</tag>
          

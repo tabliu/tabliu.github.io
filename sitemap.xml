@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://iqianduan.com/post/es6-learning-01.html</loc>
+    
+    <lastmod>2018-12-03T12:18:43.832Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iqianduan.com/post/vue-learning.html</loc>
+    
+    <lastmod>2018-12-03T02:53:59.846Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iqianduan.com/post/vue-learning-05.html</loc>
+    
+    <lastmod>2018-11-28T07:17:38.060Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://iqianduan.com/post/js-learning-24.html</loc>
+    
+    <lastmod>2018-11-22T02:12:36.011Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://iqianduan.com/post/js-learning-23.html</loc>
     
     <lastmod>2018-11-22T01:40:52.520Z</lastmod>
@@ -68,13 +96,6 @@
     <loc>http://iqianduan.com/post/vue-learning-03.html</loc>
     
     <lastmod>2018-09-27T10:07:38.613Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://iqianduan.com/post/vue-learning.html</loc>
-    
-    <lastmod>2018-09-27T10:04:29.700Z</lastmod>
     
   </url>
   

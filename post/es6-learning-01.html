@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name="baidu-site-verification" content="j1Vv5VBdEX"><meta name="sogou_site_verification" content="5rKcZFfjtl"><meta name="360-site-verification" content="41ba3d1b4d5a1406eb63765d4c990146"><meta name="author" content="Tabliu"><meta name="keywords" content="大踏步走, 前端开发, 前端网站, 学习笔记, javascript, vue"><meta name="description" content="一名80后前端开发者，专注于前端开发和用户体验。天资愚钝，五体不勤，在求知的路上不停大踏步走。"><link rel="alternative" href="/atom.xml" title="大踏步走" type="application/atom+xml"><link rel="icon" href="/favicon.ico"><title>ES6学习笔记（1）- 数组方法 - 大踏步走</title><link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../js/fancybox/jquery.fancybox.min.css"><!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--><script src="../js/jquery-3.1.1.min.js"></script><script src="../js/fancybox/jquery.fancybox.min.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?0e8fa2fbb74e1bdfda05935cbf42c755";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body style="opacity:0"><header class="head"><img class="head-avatar u-fl" src="/img/logo.png" alt="tabliu"><h1 class="head-title u-fl"><a href="/" title="大踏步走">大踏步走</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a class="head-nav__link" href="/">Home</a></li><li class="head-nav__item"><a class="head-nav__link" href="/archives">Writing</a></li><li class="head-nav__item"><a class="head-nav__link" href="https://github.com/tabliu/">Project</a></li><li class="head-nav__item"><a class="head-nav__link" href="/about">About</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time class="post__time" datetime="2018-11-30T02:40:00.000Z">November 30, 2018</time><h1 class="post__title"><a href="/post/es6-learning-01.html">ES6学习笔记（1）- 数组方法</a></h1><div class="post__main echo"><h2 id="ES6中的数组方法"><a href="#ES6中的数组方法" class="headerlink" title="ES6中的数组方法"></a>ES6中的数组方法</h2><h3 id="forEach"><a href="#forEach" class="headerlink" title="forEach()"></a><code>forEach()</code></h3><blockquote><p>对数组进行遍历，不改变原数组；<br>无返回值。</p></blockquote><p>应用场景：对给定的数组进行遍历输出</p><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> colors <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'red'</span><span class="token punctuation">,</span> <span class="token string">'blue'</span><span class="token punctuation">,</span> <span class="token string">'green'</span><span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span>i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> colors<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>colors<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// ES6 forEach方法</span>
+colors<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre><p>说明：</p><ul><li><p><code>forEach()</code>方法<code>()</code>中需要放一个迭代器函数，并需要有一个接收数据的参数；</p></li><li><p>迭代器函数可以直接在<code>forEach()</code>方法中定义，也可以外部定义后引用使用。</p></li></ul><p>练习：遍历数组中的值并将值进行相加。</p><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numbers<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sum <span class="token operator">+</span><span class="token operator">=</span> numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 forEach方法</span>
+numbers<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sum <span class="token operator">+</span><span class="token operator">=</span> num<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="map"><a href="#map" class="headerlink" title="map()"></a><code>map()</code></h3><blockquote><p>对给定数组进行处理并返回一个新数组；<br>不改变原数组值。</p></blockquote><p>应用场景1：对给定数组中的值进行乘以2并返回一个新数组</p><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">var</span> newNumbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numbers<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  newNumbers<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newNumbers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 map方法</span>
+<span class="token keyword">var</span> esNumbers <span class="token operator">=</span> numbers<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>num<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> num <span class="token operator">*</span> <span class="token number">2</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>esNumbers<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><img src="/demo/es6_map.jpg" alt="map方法"><br>(图片来源于米斯特吴的网络课程)</p><p>说明：</p><ul><li><p><code>map()</code>方法<code>()</code>中同样需要放一个迭代器函数，并需要有一个接收数据的参数；</p></li><li><p><code>map()</code>方法必须使用<code>return</code>进行返回值；如果不给，返回的新数组中的值将是<code>undefined</code>。</p></li></ul><p>应用场景2：对给定对象数组进行处理，将数组中指定的对象值存储到一个新数组中</p><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'BMW'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token string">'60w'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'BENZ'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token string">'50w'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'JEEP'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token string">'40w'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> carPrices <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> cars<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  carPrices<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>cars<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>carPrices<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 map方法</span>
+<span class="token keyword">var</span> esCarPrices <span class="token operator">=</span> cars<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> car<span class="token punctuation">.</span>price<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>esCarPrices<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="filter"><a href="#filter" class="headerlink" title="filter()"></a><code>filter()</code></h3><blockquote><p>通过对给定数组中的值进行过滤处理并将符合条件的返回到一个新数组；<br>不改变原数组值。</p></blockquote><p>应用：给定一个数组，根据给定条件，将符合条件的值返回一个新数组</p><p>条件：1、类型是水果；2、有库存；3、价格不大于4；</p><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> products <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'apple'</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token string">'fruit'</span><span class="token punctuation">,</span>
+    stock<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">5</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'cucumber'</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token string">'vegetable'</span><span class="token punctuation">,</span>
+    stock<span class="token punctuation">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">15</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'orange'</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token string">'fruit'</span><span class="token punctuation">,</span>
+    stock<span class="token punctuation">:</span> <span class="token number">13</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'celery'</span><span class="token punctuation">,</span>
+    type<span class="token punctuation">:</span> <span class="token string">'vegetable'</span><span class="token punctuation">,</span>
+    stock<span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">15</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">var</span> newProducts <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> products<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>products<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'fruit'</span> <span class="token operator">&amp;&amp;</span> products<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>stock <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> products<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>price <span class="token operator">&lt;=</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    newProducts<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>products<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newProducts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//ES6 filter方法</span>
+<span class="token keyword">var</span> esNewProducts <span class="token operator">=</span> products<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>product<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> product<span class="token punctuation">.</span>type <span class="token operator">===</span> <span class="token string">'fruit'</span> <span class="token operator">&amp;&amp;</span> product<span class="token punctuation">.</span>stock <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> product<span class="token punctuation">.</span>price <span class="token operator">&lt;=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>esNewProducts<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><img src="/demo/es6_filter.jpg" alt="filter方法"><br>(图片来源于米斯特吴的网络课程)</p><p>说明：</p><ul><li><p><code>filter()</code>方法<code>()</code>中同样需要放一个迭代器函数，并需要有一个接收数据的参数；</p></li><li><p><code>filter()</code>方法必须使用<code>return</code>进行返回值；如果不给，返回的新数组中的值将是<code>undefined</code>。</p></li></ul><p>应用场景2：给定一个数组，将该数组中属性值满足另外一个数组或者对象的指定值的项返回一个新数组：</p><pre class="language-js"><code class="language-js"><span class="token keyword">var</span> auto <span class="token operator">=</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'auto'</span><span class="token punctuation">,</span>
+  created<span class="token punctuation">:</span> <span class="token number">2010</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> cars <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'BMW'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token string">'60w'</span><span class="token punctuation">,</span>
+    dealer<span class="token punctuation">:</span> <span class="token string">'auto'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'BENZ'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token string">'50w'</span><span class="token punctuation">,</span>
+    dealer<span class="token punctuation">:</span> <span class="token string">'mofa'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'JEEP'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token string">'40w'</span><span class="token punctuation">,</span>
+    dealer<span class="token punctuation">:</span> <span class="token string">'auto'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> newCars <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 filter方法</span>
+<span class="token keyword">var</span> newCars <span class="token operator">=</span> cars<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>car<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> car<span class="token punctuation">.</span>dealer <span class="token operator">===</span> auto<span class="token punctuation">.</span>name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newCars<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="find"><a href="#find" class="headerlink" title="find()"></a><code>find()</code></h3><blockquote><p>在给定数组中找到符合条件的值即返回<br>不改变原数组值。</p></blockquote><p>应用：给定一个数组，根据给定条件，将符合条件的值返回</p><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+* 给定一个数组，根据给定条件，将符合条件的值返回
+*/</span>
+
+<span class="token keyword">var</span> users <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'Alex'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token string">'12'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'Bill'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token string">'20'</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'Alex'</span><span class="token punctuation">,</span>
+    age<span class="token punctuation">:</span> <span class="token string">'1'</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">var</span> user<span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> users<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>users<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'Alex'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    user <span class="token operator">=</span> users<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 阻止继续查找</span>
+
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">//ES6 find方法</span>
+
+<span class="token keyword">var</span> user <span class="token operator">=</span> users<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  user<span class="token punctuation">.</span>name <span class="token operator">===</span> <span class="token string">'Alex'</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p><img src="/demo/es6_find.jpg" alt="find方法"><br>(图片来源于米斯特吴的网络课程)</p><p><code>find()</code>方法和<code>filter()</code>方法的区别：</p><ul><li><p>相同点：都是通过给定调用函数条件对指定数组进行查找并返回，找不到返回<code>undefined</code>；</p></li><li><p>不同点：find()<code>方法返回的是该数组中符合调用函数条件的第一个值或者对象，找到即停止；</code>filter()`方法返回的是所有符合条件的值或者对象组成的新数组。</p></li></ul><h3 id="every-和some"><a href="#every-和some" class="headerlink" title="every()和some()"></a><code>every()和some()</code></h3><blockquote><p>every()方法：在数组中根据给定条件对数组进行判定，如果所有条件都符合则返回真(<code>true</code>)，否则返回假(<code>false</code>)，相当于逻辑运算中的<code>&amp;&amp;与</code>；<br>some()方法：在数组中根据给定条件对数组进行判定，只要有条件符合则返回真(<code>true</code>)，全部没有才会返回假(<code>false</code>)，相当于逻辑运算中的<code>||或</code>；<br>必须有返回值。</p></blockquote><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+* 给定一个包含数字的数组，判断每个数字是否都能被2整除
+*/</span>
+
+<span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> every <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> some <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numbers<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    every <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    every <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+    some <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>every<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// false</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>some<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// true</span>
+
+<span class="token comment" spellcheck="true">// ES6 every()方法</span>
+every <span class="token operator">=</span> numbers<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> number <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>every<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//false</span>
+
+some <span class="token operator">=</span> numbers<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> number <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>some<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//true</span>
+</code></pre><p><img src="/demo/es6_every.jpg" alt="every方法"><br>(图片来源于米斯特吴的网络课程)</p><p><img src="/demo/es6_some.jpg" alt="some方法"><br>(图片来源于米斯特吴的网络课程)</p><p><code>every()</code>方法和<code>some()</code>方法的区别：</p><ul><li><p><code>every()</code>方法：一假即假；</p></li><li><p><code>some()</code>方法：一真即真；</p></li><li><p>一旦<code>every()</code>和<code>some()</code>方法确认返回值就会停止遍历数组。</p></li></ul><p>应用：对注册页面，判断所有的input内容都不为空</p><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">Field</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">this</span><span class="token punctuation">.</span>value <span class="token operator">=</span> value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+Field<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>validate <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">.</span>length <span class="token operator">></span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">var</span> username <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Field</span><span class="token punctuation">(</span><span class="token string">'shanyang'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    email <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Field</span><span class="token punctuation">(</span><span class="token string">'shanyang@hotmail.com'</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    telphone <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Field</span><span class="token punctuation">(</span><span class="token string">'18888888888'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES5</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>username<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> email<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> telphone<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 every()方法</span>
+
+<span class="token keyword">var</span> inputs <span class="token operator">=</span> <span class="token punctuation">[</span>username<span class="token punctuation">,</span> email<span class="token punctuation">,</span> telphone<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">var</span> inputsValidate <span class="token operator">=</span> inputs<span class="token punctuation">.</span><span class="token function">every</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>input<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> input<span class="token punctuation">.</span><span class="token function">validate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>inputsValidate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a><code>reduce()</code></h3><blockquote><p>根据指定的回调函数将数组元素进行组合并生成单个值返回；<br>必须有返回值。</p></blockquote><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+* 数组中数字进行累加
+*/</span>
+
+<span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES5 for循环遍历数组</span>
+<span class="token keyword">var</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numbers<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  sum <span class="token operator">+</span><span class="token operator">=</span> numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>sum<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 reduce()方法</span>
+<span class="token keyword">var</span> total <span class="token operator">=</span> numbers<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>prev<span class="token punctuation">,</span> number<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> prev <span class="token operator">+</span> number
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>total<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>说明：</p><ul><li><p><code>reduce()</code>方法的语法：<code>arr.reduce(function(prev, item, index, array) { return prev }, initValue)</code>；</p></li><li><p><code>reduce()</code>方法中必须有两个返回值：</p><ul><li><p><code>prev</code>：初始项，必须。每次运算后将<code>prev</code>和<code>item</code>的运算赋给自身，最后作为返回值返回；</p></li><li><p><code>item</code>：当前项，必须；</p></li><li><p><code>index</code>：当前项的索引值，可选；</p></li><li><p><code>array</code>：当前数组，可选；</p></li><li><p><code>initValue</code>：初始项的初始值，可选。如果初始值为空，<code>prev</code>默认接收该数组的第一项的值为初始值，<code>item</code>变为该数组的第二项的值。</p></li></ul></li></ul><p>本节完。</p></div></header><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a class="post__tag__link" href="/tags/code/">code</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/javascript/">javascript</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/note/">note</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/ES6/">ES6</a></li></ul></footer></article></main><footer class="foot"><div class="foot-copy">Copyright &copy; 2015-2018 <a href="/" title="大踏步走">Tabliu</a>theme by <a href="https://github.com/ochukai/hexo-theme-ochuunn/">ochuunn</a><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13042587号-1</a></div></footer><script src="../js/scroller.js"></script><script src="../js/main.js"></script><script>!function(){var c="http:"==document.location.protocol?"http://js.passport.qihucdn.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac":"https://jspassport.ssl.qhimg.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac";document.write('<script src="'+c+'" id="sozz"><\/script>')}()</script></body></html>
