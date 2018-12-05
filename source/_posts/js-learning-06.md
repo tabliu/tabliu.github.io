@@ -92,11 +92,12 @@ window {
 
 ### 预编译过程：发生在函数执行的前一刻。预编译过程：
 
-* 创建AO对象：Activation Object（执行期上下文，作用域）；
-* 找形参和变量声明，将形参名和变量作为AO属性名，值为undefined；
-* 将实参值和形参统一，把实参的值赋给形参；
-* 在函数体里面找函数声明，值赋予函数体。
-  示例如下：
+1. 创建`AO`对象：`Activation Object`（执行期上下文，作用域）；
+2. 找形参和变量声明，将形参名和变量作为`AO`属性名，值为`undefined`；
+3. 将实参值和形参统一，把实参的值赋给形参；
+4. 在函数体里面找函数声明，值赋予函数体。
+
+示例如下：
 
 ```javascript
 function test(a) {
@@ -113,14 +114,15 @@ function test(a) {
 // 预编译：发生在函数执行的前一刻
 // 找AO
 AO {
-  a: undefined, //第3步：1；第4步：function a() {}。执行后第1次：function a() {}；第2次：123；第3次：123
+  a: undefined, //第3步：123；第4步：function a() {}。执行后第1次：function a() {}；第2次：123；第3次：123
   b: undefined, //执行后function () {}
   d: function d() {} //执行后function d() {}
 }
 ```
 
 ***敲黑板***
-* 打印的变量后有同名的函数声明，打印的一定是function；
+
+* 打印的变量后有同名的函数声明，打印的一定是`function`；
 
 ```javascript
 function bar() {

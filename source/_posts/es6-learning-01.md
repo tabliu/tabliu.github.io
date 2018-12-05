@@ -235,8 +235,8 @@ console.log(newCars);
 
 ```js
 /**
-* 给定一个数组，根据给定条件，将符合条件的值返回
-*/
+ * 给定一个数组，根据给定条件，将符合条件的值返回
+ */
 
 var users = [
   {
@@ -293,8 +293,8 @@ console.log(user);
 
 ```js
 /**
-* 给定一个包含数字的数组，判断每个数字是否都能被2整除
-*/
+ * 给定一个包含数字的数组，判断每个数字是否都能被2整除
+ */
 
 var numbers = [8, 4, 32, 37];
 var every = false;
@@ -376,8 +376,8 @@ console.log(inputsValidate);
 
 ```js
 /**
-* 数组中数字进行累加
-*/
+ * 数组中数字进行累加
+ */
 
 var numbers = [8, 4, 32, 37];
 
@@ -403,14 +403,70 @@ console.log(total);
 
 * `reduce()`方法中必须有两个返回值：
 
-  + `prev`：初始项，必须。每次运算后将`prev`和`item`的运算赋给自身，最后作为返回值返回；
+  * `prev`：初始项，必须。每次运算后将`prev`和`item`的运算赋给自身，最后作为返回值返回；
 
-  + `item`：当前项，必须；
+  * `item`：当前项，必须；
 
-  + `index`：当前项的索引值，可选；
+  * `index`：当前项的索引值，可选；
 
-  + `array`：当前数组，可选；
+  * `array`：当前数组，可选；
 
-  + `initValue`：初始项的初始值，可选。如果初始值为空，`prev`默认接收该数组的第一项的值为初始值，`item`变为该数组的第二项的值。
+  * `initValue`：初始项的初始值，可选。如果初始值为空，`prev`默认接收该数组的第一项的值为初始值，`item`变为该数组的第二项的值。
+
+使用`reduce()`方法可以替代数组中很多其他方法，可以根据实际情况来使用。
+
+```js
+/**
+ * 应用：将数组中对象的某个属性抽离到另外一个数组中
+ *
+ */
+
+var colors = [
+  {color: 'red'},
+  {color: 'green'},
+  {color: 'blue'}
+]
+
+// ES6 map()方法
+
+newColors = colors.map(function(color) {
+  return color.color;
+})
+
+console.log(newColors);
+
+// ES6 reduce()方法
+
+newColors = colors.reduce(function(prev, color) {
+  prev.push(color.color);
+  return prev;
+}, [])
+
+console.log(newColors);
+```
+
+在本例中，`prev`这个初始项因为用到了数组的`push()`方法，所以必须要定义`initValue`初始值为数组值，否则会报错。
+
+综合应用
+
+```js
+/**
+ * 应用：判断给定字符串中的括号是否对称
+ * '(())()' // ture
+ * '(((00))' //false
+ * ')()(()' //false
+ */
+
+function matchBrace(str) {
+  return !str.split('').reduce(function(prev, chat) {
+    if(prev < 0) return prev;
+    if(chat == '(') { return ++ prev; }
+    if(chat == ')') { return -- prev; }
+    return prev;
+  }, 0)
+}
+
+console.log(matchBrace('(())()()(())'));
+```
 
 本节完。
