@@ -144,8 +144,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newCars<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h3 id="find"><a href="#find" class="headerlink" title="find()"></a><code>find()</code></h3><blockquote><p>在给定数组中找到符合条件的值即返回<br>不改变原数组值。</p></blockquote><p>应用：给定一个数组，根据给定条件，将符合条件的值返回</p><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
-* 给定一个数组，根据给定条件，将符合条件的值返回
-*/</span>
+ * 给定一个数组，根据给定条件，将符合条件的值返回
+ */</span>
 
 <span class="token keyword">var</span> users <span class="token operator">=</span> <span class="token punctuation">[</span>
   <span class="token punctuation">{</span>
@@ -184,8 +184,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>user<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><p><img src="/demo/es6_find.jpg" alt="find方法"><br>(图片来源于米斯特吴的网络课程)</p><p><code>find()</code>方法和<code>filter()</code>方法的区别：</p><ul><li><p>相同点：都是通过给定调用函数条件对指定数组进行查找并返回，找不到返回<code>undefined</code>；</p></li><li><p>不同点：find()<code>方法返回的是该数组中符合调用函数条件的第一个值或者对象，找到即停止；</code>filter()`方法返回的是所有符合条件的值或者对象组成的新数组。</p></li></ul><h3 id="every-和some"><a href="#every-和some" class="headerlink" title="every()和some()"></a><code>every()和some()</code></h3><blockquote><p>every()方法：在数组中根据给定条件对数组进行判定，如果所有条件都符合则返回真(<code>true</code>)，否则返回假(<code>false</code>)，相当于逻辑运算中的<code>&amp;&amp;与</code>；<br>some()方法：在数组中根据给定条件对数组进行判定，只要有条件符合则返回真(<code>true</code>)，全部没有才会返回假(<code>false</code>)，相当于逻辑运算中的<code>||或</code>；<br>必须有返回值。</p></blockquote><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
-* 给定一个包含数字的数组，判断每个数字是否都能被2整除
-*/</span>
+ * 给定一个包含数字的数组，判断每个数字是否都能被2整除
+ */</span>
 
 <span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">var</span> every <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
@@ -240,8 +240,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>inputsValidate<span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre><h3 id="reduce"><a href="#reduce" class="headerlink" title="reduce()"></a><code>reduce()</code></h3><blockquote><p>根据指定的回调函数将数组元素进行组合并生成单个值返回；<br>必须有返回值。</p></blockquote><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
-* 数组中数字进行累加
-*/</span>
+ * 数组中数字进行累加
+ */</span>
 
 <span class="token keyword">var</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">32</span><span class="token punctuation">,</span> <span class="token number">37</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 
@@ -259,4 +259,48 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>total<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre><p>说明：</p><ul><li><p><code>reduce()</code>方法的语法：<code>arr.reduce(function(prev, item, index, array) { return prev }, initValue)</code>；</p></li><li><p><code>reduce()</code>方法中必须有两个返回值：</p><ul><li><p><code>prev</code>：初始项，必须。每次运算后将<code>prev</code>和<code>item</code>的运算赋给自身，最后作为返回值返回；</p></li><li><p><code>item</code>：当前项，必须；</p></li><li><p><code>index</code>：当前项的索引值，可选；</p></li><li><p><code>array</code>：当前数组，可选；</p></li><li><p><code>initValue</code>：初始项的初始值，可选。如果初始值为空，<code>prev</code>默认接收该数组的第一项的值为初始值，<code>item</code>变为该数组的第二项的值。</p></li></ul></li></ul><p>本节完。</p></div></header><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a class="post__tag__link" href="/tags/code/">code</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/javascript/">javascript</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/note/">note</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/ES6/">ES6</a></li></ul></footer></article></main><footer class="foot"><div class="foot-copy">Copyright &copy; 2015-2018 <a href="/" title="大踏步走">Tabliu</a>theme by <a href="https://github.com/ochukai/hexo-theme-ochuunn/">ochuunn</a><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13042587号-1</a></div></footer><script src="../js/scroller.js"></script><script src="../js/main.js"></script><script>!function(){var c="http:"==document.location.protocol?"http://js.passport.qihucdn.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac":"https://jspassport.ssl.qhimg.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac";document.write('<script src="'+c+'" id="sozz"><\/script>')}()</script></body></html>
+</code></pre><p>说明：</p><ul><li><p><code>reduce()</code>方法的语法：<code>arr.reduce(function(prev, item, index, array) { return prev }, initValue)</code>；</p></li><li><p><code>reduce()</code>方法中必须有两个返回值：</p><ul><li><p><code>prev</code>：初始项，必须。每次运算后将<code>prev</code>和<code>item</code>的运算赋给自身，最后作为返回值返回；</p></li><li><p><code>item</code>：当前项，必须；</p></li><li><p><code>index</code>：当前项的索引值，可选；</p></li><li><p><code>array</code>：当前数组，可选；</p></li><li><p><code>initValue</code>：初始项的初始值，可选。如果初始值为空，<code>prev</code>默认接收该数组的第一项的值为初始值，<code>item</code>变为该数组的第二项的值。</p></li></ul></li></ul><p>使用<code>reduce()</code>方法可以替代数组中很多其他方法，可以根据实际情况来使用。</p><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+ * 应用：将数组中对象的某个属性抽离到另外一个数组中
+ *
+ */</span>
+
+<span class="token keyword">var</span> colors <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token string">'red'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token string">'green'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token string">'blue'</span><span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment" spellcheck="true">// ES6 map()方法</span>
+
+newColors <span class="token operator">=</span> colors<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> color<span class="token punctuation">.</span>color<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newColors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6 reduce()方法</span>
+
+newColors <span class="token operator">=</span> colors<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>prev<span class="token punctuation">,</span> color<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  prev<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>color<span class="token punctuation">.</span>color<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">return</span> prev<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>newColors<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>在本例中，<code>prev</code>这个初始项因为用到了数组的<code>push()</code>方法，所以必须要定义<code>initValue</code>初始值为数组值，否则会报错。</p><p>综合应用</p><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">/**
+ * 应用：判断给定字符串中的括号是否对称
+ * '(())()' // ture
+ * '(((00))' //false
+ * ')()(()' //false
+ */</span>
+
+<span class="token keyword">function</span> <span class="token function">matchBrace</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token operator">!</span>str<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>prev<span class="token punctuation">,</span> chat<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>prev <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> prev<span class="token punctuation">;</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>chat <span class="token operator">==</span> <span class="token string">'('</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token operator">++</span> prev<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">if</span><span class="token punctuation">(</span>chat <span class="token operator">==</span> <span class="token string">')'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token operator">--</span> prev<span class="token punctuation">;</span> <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> prev<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">matchBrace</span><span class="token punctuation">(</span><span class="token string">'(())()()(())'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>本节完。</p></div></header><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a class="post__tag__link" href="/tags/code/">code</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/javascript/">javascript</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/note/">note</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/ES6/">ES6</a></li></ul></footer></article></main><footer class="foot"><div class="foot-copy">Copyright &copy; 2015-2018 <a href="/" title="大踏步走">Tabliu</a>theme by <a href="https://github.com/ochukai/hexo-theme-ochuunn/">ochuunn</a><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13042587号-1</a></div></footer><script src="../js/scroller.js"></script><script src="../js/main.js"></script><script>!function(){var c="http:"==document.location.protocol?"http://js.passport.qihucdn.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac":"https://jspassport.ssl.qhimg.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac";document.write('<script src="'+c+'" id="sozz"><\/script>')}()</script></body></html>

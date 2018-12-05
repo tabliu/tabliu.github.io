@@ -4,8 +4,73 @@
 
     
   <url>
+    <loc>http://iqianduan.com/post/js-learning-06.html</loc>
+    <lastmod>2018-12-05T08:45:21.362Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（6）- 函数</title>
+        <pubTime>2018-07-03T02:10:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/es6-learning-02.html</loc>
+    <lastmod>2018-12-05T08:44:55.733Z</lastmod>
+    <data>
+        <display>
+        <title>ES6学习笔记（2）- 使用Let和Const</title>
+        <pubTime>2018-12-05T03:22:00.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+        <tag>ES6</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://iqianduan.com/post/js-learning-07.html</loc>
+    <lastmod>2018-12-05T03:51:25.700Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（7）- 作用域</title>
+        <pubTime>2018-07-04T03:10:11.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iqianduan.com/post/es6-learning-01.html</loc>
-    <lastmod>2018-12-03T12:18:43.832Z</lastmod>
+    <lastmod>2018-12-05T03:22:06.280Z</lastmod>
     <data>
         <display>
         <title>ES6学习笔记（1）- 数组方法</title>
@@ -558,48 +623,6 @@
         <display>
         <title>JavaScript学习笔记（13）- call和apply</title>
         <pubTime>2018-07-30T10:18:00.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iqianduan.com/post/js-learning-07.html</loc>
-    <lastmod>2018-07-30T08:03:17.046Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（7）- 作用域</title>
-        <pubTime>2018-07-04T03:10:11.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iqianduan.com/post/js-learning-06.html</loc>
-    <lastmod>2018-07-30T08:00:22.323Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（6）- 函数</title>
-        <pubTime>2018-07-03T02:10:00.000Z</pubTime>
         
         <tag>code</tag>
          
