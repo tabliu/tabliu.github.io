@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"><meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"><meta name="baidu-site-verification" content="j1Vv5VBdEX"><meta name="sogou_site_verification" content="5rKcZFfjtl"><meta name="360-site-verification" content="41ba3d1b4d5a1406eb63765d4c990146"><meta name="author" content="Tabliu"><meta name="keywords" content="大踏步走, 前端开发, 前端网站, 学习笔记, javascript, vue"><meta name="description" content="一名80后前端开发者，专注于前端开发和用户体验。天资愚钝，五体不勤，在求知的路上不停大踏步走。"><link rel="alternative" href="/atom.xml" title="大踏步走" type="application/atom+xml"><link rel="icon" href="/favicon.ico"><title>ES6学习笔记（4）- 增强字面量 - 大踏步走</title><link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../js/fancybox/jquery.fancybox.min.css"><!--[if lt IE 9]><script>(function(a,b){a="abbr article aside audio bdi canvas data datalist details dialog figcaption figure footer header hgroup main mark meter nav output progress section summary template time video".split(" ");for(b=a.length-1;b>=0;b--)document.createElement(a[b])})()</script><![endif]--><script src="../js/jquery-3.1.1.min.js"></script><script src="../js/fancybox/jquery.fancybox.min.js"></script><script>var _hmt=_hmt||[];!function(){var e=document.createElement("script");e.src="https://hm.baidu.com/hm.js?0e8fa2fbb74e1bdfda05935cbf42c755";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)}()</script><link rel="stylesheet" href="/css/prism.css" type="text/css"></head><body style="opacity:0"><header class="head"><img class="head-avatar u-fl" src="/img/logo.png" alt="tabliu"><h1 class="head-title u-fl"><a href="/" title="大踏步走">大踏步走</a></h1><nav class="head-nav u-fr"><ul class="head-nav__list"><li class="head-nav__item"><a class="head-nav__link" href="/">Home</a></li><li class="head-nav__item"><a class="head-nav__link" href="/archives">Writing</a></li><li class="head-nav__item"><a class="head-nav__link" href="https://github.com/tabliu/">Project</a></li><li class="head-nav__item"><a class="head-nav__link" href="/about">About</a></li></ul></nav></header><main class="main"><article class="post"><header class="post__head"><time class="post__time" datetime="2018-12-07T03:10:00.000Z">December 7, 2018</time><h1 class="post__title"><a href="/post/es6-learning-04.html">ES6学习笔记（4）- 增强字面量</a></h1><div class="post__main echo"><blockquote><p>ES6中提供了一种全新的增强字面量的方法，接下来简单的介绍下关于增强字面量的使用。</p></blockquote><h2 id="模版增强字面量"><a href="#模版增强字面量" class="headerlink" title="模版增强字面量"></a>模版增强字面量</h2><p>在日常开发中，字符串的使用随处可见，但在使用过程中经常会有各种限制，比如同一字符串不能折行，不能直接调用已定义的变量等。</p><p>ES6中针对这些做了改进，用两个反引号(<code>)进行标识，在(</code>)内，可以添加字符串，<code>html</code>标签或者变量。</p><h3 id="可以替代常规字符串的定义方式"><a href="#可以替代常规字符串的定义方式" class="headerlink" title="可以替代常规字符串的定义方式"></a>可以替代常规字符串的定义方式</h3><pre class="language-js"><code class="language-js"><span class="token comment" spellcheck="true">// 常规</span>
+<span class="token keyword">let</span> str1 <span class="token operator">=</span> <span class="token string">'hello world!'</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">// ES6</span>
+<span class="token keyword">let</span> str2 <span class="token operator">=</span> <span class="token template-string"><span class="token string">`hello world!`</span></span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><h3 id="模版字符串内可以任意换行"><a href="#模版字符串内可以任意换行" class="headerlink" title="模版字符串内可以任意换行"></a>模版字符串内可以任意换行</h3><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> html1 <span class="token operator">=</span> <span class="token string">'&lt;div class="wrap">&lt;h1>我是标题&lt;/h1>&lt;p>我是内容&lt;/p>&lt;/div>'</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>html1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> html2 <span class="token operator">=</span> <span class="token template-string"><span class="token string">`&lt;div class="wrap">
+  &lt;h1>我是标题&lt;/h1>
+  &lt;p>我是内容&lt;/p>
+&lt;/div>`</span></span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>html2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// &lt;div class="wrap"></span>
+<span class="token comment" spellcheck="true">//   &lt;h1>我是标题&lt;/h1></span>
+<span class="token comment" spellcheck="true">//   &lt;p>我是内容&lt;/p></span>
+<span class="token comment" spellcheck="true">// &lt;/div></span>
+</code></pre><p>使用增强模版字符串，(`)内的换行和空格都会被保留。</p><h3 id="模版字符串内可加入变量占位符"><a href="#模版字符串内可加入变量占位符" class="headerlink" title="模版字符串内可加入变量占位符"></a>模版字符串内可加入变量占位符</h3><p>模版字符串内的变量占位符允许将任何有效的 JS 表达式嵌入到模板字面量中，并将其结果输出为字符串的一部分。</p><p>变量占位符由 <code>${</code>起始，<code>}</code>结束，中间允许放入任意的 JS 表达式，可以是简单的变量，运算符或者函数等。</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> str <span class="token operator">=</span> <span class="token template-string"><span class="token string">`hello world!`</span></span>
+<span class="token keyword">let</span> html <span class="token operator">=</span> <span class="token template-string"><span class="token string">`&lt;div class="wrap">
+  &lt;h1>我是标题&lt;/h1>
+  &lt;p>我想大声的喊：</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>str<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/p>
+&lt;/div>`</span></span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">// &lt;div class="wrap"></span>
+<span class="token comment" spellcheck="true">//   &lt;h1>我是标题&lt;/h1></span>
+<span class="token comment" spellcheck="true">//   &lt;p>我想大声的喊：hello world!&lt;/p></span>
+<span class="token comment" spellcheck="true">// &lt;/div></span>
+</code></pre><h2 id="对象、数组增强字面量"><a href="#对象、数组增强字面量" class="headerlink" title="对象、数组增强字面量"></a>对象、数组增强字面量</h2><h3 id="定义方法"><a href="#定义方法" class="headerlink" title="定义方法"></a>定义方法</h3><p>我们经常用到的数组或者对象的字面量定义就是一种增强方式，展示直观并可以缩减代码。</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> arr1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Array</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> arr2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//字面量定义</span>
+<span class="token keyword">let</span> obj1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Object</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> obj2 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//字面量定义</span>
+</code></pre><h3 id="属性和方法的增强"><a href="#属性和方法的增强" class="headerlink" title="属性和方法的增强"></a>属性和方法的增强</h3><p>针对对象中的属性，如果属性名和值相同，可以只保留一个即可；</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  router<span class="token punctuation">:</span> router<span class="token punctuation">,</span>
+  template<span class="token punctuation">:</span> <span class="token string">'&lt;App/>'</span><span class="token punctuation">,</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span> App <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>其中的 <code>router</code> 则可以进行简写：</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> app <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vue</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  el<span class="token punctuation">:</span> <span class="token string">'#app'</span><span class="token punctuation">,</span>
+  router<span class="token punctuation">,</span> <span class="token comment" spellcheck="true">// router: router,</span>
+  template<span class="token punctuation">:</span> <span class="token string">'&lt;App/>'</span><span class="token punctuation">,</span>
+  components<span class="token punctuation">:</span> <span class="token punctuation">{</span> App <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>对于对象中的方法，也可以进行相应简写，将<code>: function</code>省略。比如 <code>Vue</code>框架中就采用了这样的形式：</p><pre class="language-js"><code class="language-js"><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'app'</span><span class="token punctuation">,</span>
+  data <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>  <span class="token comment" spellcheck="true">// data: function () { ... }</span>
+    <span class="token keyword">return</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mounted <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// mounted: function () { ... }</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  created <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token comment" spellcheck="true">// created: function () { ... }</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>下面看一个实例：</p><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">CreateBookShop</span><span class="token punctuation">(</span>inventory<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    inventory<span class="token punctuation">:</span> inventory<span class="token punctuation">,</span>
+    inventoryValue<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>inventory<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span>total<span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> total <span class="token operator">+</span> book<span class="token punctuation">.</span>price<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    priceForTitle<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>title<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>inventory<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> book<span class="token punctuation">.</span>title <span class="token operator">===</span> title<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span>price<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> inventroy <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">'Vue'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">10</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    title<span class="token punctuation">:</span> <span class="token string">'Angular'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">15</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+
+<span class="token keyword">let</span> bookShop <span class="token operator">=</span> <span class="token function">CreateBookShop</span><span class="token punctuation">(</span>inventroy<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bookShop<span class="token punctuation">.</span><span class="token function">inventoryValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>bookShop<span class="token punctuation">.</span><span class="token function">priceForTitle</span><span class="token punctuation">(</span><span class="token string">'Vue'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre><p>通过字面量增强可以对代码进行简化如下：</p><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">CreateBookShop</span><span class="token punctuation">(</span>inventory<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    inventory<span class="token punctuation">,</span>
+    inventoryValue <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>inventory<span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>total<span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> total <span class="token operator">+</span> book<span class="token punctuation">.</span>price<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    priceForTitle <span class="token punctuation">(</span>title<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>inventory<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>book <span class="token operator">=</span><span class="token operator">></span> book<span class="token punctuation">.</span>title <span class="token operator">===</span> title<span class="token punctuation">)</span><span class="token punctuation">.</span>price<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>本节完。</p></div></header><footer class="post__foot u-cf"><ul class="post__tag u-fl"><li class="post__tag__item"><a class="post__tag__link" href="/tags/code/">code</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/javascript/">javascript</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/note/">note</a></li><li class="post__tag__item"><a class="post__tag__link" href="/tags/ES6/">ES6</a></li></ul></footer></article></main><footer class="foot"><div class="foot-copy">Copyright &copy; 2015-2019 <a href="/" title="大踏步走">Tabliu</a>theme by <a href="https://github.com/ochukai/hexo-theme-ochuunn/">ochuunn</a><a href="http://www.miibeian.gov.cn/" target="_blank">京ICP备13042587号-1</a></div></footer><script src="../js/scroller.js"></script><script src="../js/main.js"></script><script>!function(){var c="http:"==document.location.protocol?"http://js.passport.qihucdn.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac":"https://jspassport.ssl.qhimg.com/11.0.1.js?d8ae537cce9dbebc797b803cec7ed6ac";document.write('<script src="'+c+'" id="sozz"><\/script>')}()</script></body></html>
