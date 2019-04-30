@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "hexo clean && hexo g && hexo s",
-    "deploy": "hexo d"
+    "build": "hexo d"
   },
   "dependencies": {
     "hexo": "^3.2.0",
