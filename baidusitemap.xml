@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://iqianduan.com/post/js-learning-25.html</loc>
+    <lastmod>2019-04-19T12:17:43.930Z</lastmod>
+    <data>
+        <display>
+        <title>JavaScript学习笔记（25）- 正则表达式入门</title>
+        <pubTime>2018-11-25T02:10:10.000Z</pubTime>
+        
+        <tag>code</tag>
+         
+        <tag>javascript</tag>
+         
+        <tag>note</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://iqianduan.com/post/es6-learning-04.html</loc>
     <lastmod>2019-02-14T03:37:55.007Z</lastmod>
     <data>
@@ -18,27 +39,6 @@
         <tag>note</tag>
          
         <tag>ES6</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://iqianduan.com/post/js-learning-25.html</loc>
-    <lastmod>2018-12-07T06:50:22.805Z</lastmod>
-    <data>
-        <display>
-        <title>JavaScript学习笔记（25）- 正则表达式</title>
-        <pubTime>2018-07-05T02:10:10.000Z</pubTime>
-        
-        <tag>code</tag>
-         
-        <tag>javascript</tag>
-         
-        <tag>note</tag>
          
          
            
